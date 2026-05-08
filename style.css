@@ -282,7 +282,7 @@ body {
 /* ── Social Buttons ── */
 .social-row {
     display: flex;
-    justify-content: space-between; /* Pushes icons to the edges */
+    justify-content: space-evenly; /* Pushes icons to the edges */
     align-items: center;
     width: 100%;
 }
