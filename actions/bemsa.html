@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sander - BEMSA</title>
+  <link rel="stylesheet" href="/style.css">
+  <!--  Favicon -->
+  <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css" />
+</head>
+<body>
+
+<header class="gallery-header">
+  <a class="back" href="index.html"> <i class="ph-bold ph-arrow-left"></i>    
+ Back</a>
+  <div class="logo">
+    <div class="logo-box">S</div>
+  </div>
+  <span class="page-title">BEMSA</span>
+</header>
+
+<div class="gallery-wrap">
+  <div class="masonry" id="masonry"></div>
+</div>
+
+<!-- Lightbox (leave this as-is) -->
+<div class="lightbox" id="lightbox" onclick="closeLb(event)">
+  <button class="lb-close" onclick="closeLb()"><i class="ph-bold ph-x-circle"></i>   
+</button>
+  <img id="lb-img" src="" alt="">
+  <div class="lb-caption" id="lb-cap"></div>
+</div>
+<script>
+const IMAGES = [
+  { src: "/assets/image/actions/bemsa/Teddybear Hospital 2025 Brugge - 03.JPG", title: "Teddybear Hospital Brugge" },
+  { src: "/assets/image/actions/bemsa/Teddybear Hospital 2025 Brugge - 02.JPG", title: "Teddybear Hospital Brugge" },
+  { src: "/assets/image/actions/bemsa/Teddybear Hospital 2025 Brugge - 01.JPG", title: "Teddybear Hospital Brugge" },
+  { src: "/assets/image/actions/bemsa/Teddybear Hospital 2026 Kortrijk- 01.jpg", title: "Teddybear Hospital Kortrijk" }
+  ];
+</script>
+<script src="/gallery.js"></script>
+</body>
+</html>

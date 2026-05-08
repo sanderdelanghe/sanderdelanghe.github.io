@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tell crawlers not to index this page or follow links -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Sander - ROOTS</title>
+  <link rel="stylesheet" href="style.css">
+  <!--  Favicon -->
+  <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css" />
+  <style>
+    #gatekeeper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 80vh;
+      font-family: sans-serif;
+      padding: 30px;
+    }
+    #gatekeeper input {
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<header class="gallery-header">
+  <a class="back" href="index.html"> <i class="ph-bold ph-arrow-left"></i> Back</a>
+  <div class="logo">
+    <div class="logo-box">S</div>
+  </div>
+  <span class="page-title">ROOTS</span>
+</header>
+
+<!-- Question Container -->
+<div id="gatekeeper">
+  <label for="motherName">Veiligheidsvraag: Wie is Sander's moeder? (voornaam)</label>
+  <input type="text" id="motherName" placeholder="Typ hier..." oninput="checkName(this.value)">
+</div>
+
+<!-- Container where iframe will be injected -->
+<div id="content-root"></div>
+
+<script>
+const motherNameCorrect = "Els"; // Change this to the actual name
+
+function checkName(val) {
+    if (val.toLowerCase().trim() === motherNameCorrect.toLowerCase()) {
+        const root = document.getElementById('content-root');
+        const gate = document.getElementById('gatekeeper');
+        
+        // Remove the question and inject the iframe
+        gate.style.display = 'none';
+        root.innerHTML = '<iframe id="treeFrame" src="Stamboom/Familie.html" frameborder="0" style="width: 100vw;"></iframe>';
+        // Ik weet dat dit geen veiligheid geeft, maar 99% van de mensen zal dit niet doorhebben: safety by obscurity :D
+        adjustIframeHeight();
+    }
+}
+
+const adjustIframeHeight = () => {
+    const header = document.querySelector('.gallery-header');
+    const iframe = document.getElementById('treeFrame');
+
+    if (header && iframe) {
+        const headerHeight = header.offsetHeight;
+        iframe.style.height = `calc(100vh - ${headerHeight}px)`;
+    }
+};
+
+window.addEventListener('load', adjustIframeHeight);
+window.addEventListener('resize', adjustIframeHeight);
+</script>
+</body>
+</html>

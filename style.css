@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..600;1,14..32,100..600&display=swap');
+
+
+/* ════════════════════════════════════════
+   RAW GRID — shared styles
+   Edit this file to change all pages at once
+   ════════════════════════════════════════ */
+
+/* ── Tokens — change these to retheme everything ── */
+:root {
+  --main1:       #c8cee8;   /* sidebar / header background */
+  --main2:       #dfe8d5;   /* active nav row highlight   */
+  --black:      #111;
+  --white:      #fff;
+  --gap:        6px;       /* space between gallery images */
+  --col-width:  300px;     /* fixed masonry column width  */
+  --max-width:  1080px;    /* gallery max width           */
+}
+
+/* ── Reset ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "Inter", sans-serif;  background: var(--white);
+  color: var(--black);
+  min-height: 100vh;
+  font-optical-sizing: auto;
+}
+
+/* ════════════════════════════
+   INDEX PAGE
+   ════════════════════════════ */
+
+   .icon {
+  width: 1.2em;  /* Schaleert mee met de tekstgrootte (em) */
+  height: 1.2em;
+  stroke-width: 3px; /* Maakt het icoon even dik/vet als je font */
+  vertical-align: middle;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  background: var(--main1);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  border: 2px solid var(--black);
+}
+
+.logo            { display: flex; align-items: center; gap: 0.75rem; }
+.logo-box        {
+  border: 2.5px solid var(--black);
+  width: 2.5rem; height: 2.5rem;
+  display: grid; place-items: center;
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em;
+}
+.logo-name       { font-size: 1rem; font-weight: 600; letter-spacing: 0.05em; }
+
+.headline {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 600; line-height: 1.05; letter-spacing: -0.02em;
+}
+
+.cta {
+  display: inline-block;
+  background: var(--black); color: var(--white);
+  padding: 0.75rem 1.25rem;
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer; border: none;
+}
+
+/* ── nav list ── */
+.nav { display: flex; flex-direction: column; }
+
+.nav-row {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 0 2rem; min-height: 3rem; height: 100%;
+  border-bottom: 2px solid var(--black);
+  cursor: pointer; transition: background 0.15s;
+  user-select: none;
+  text-decoration: none; color: var(--black);
+}
+.nav-row:first-child  { border-top: 2px solid var(--black); }
+.nav-row.active       { background: var(--main2); }
+.nav-row:not(.active):hover { background: #f5f5f5; }
+
+.arrow     { font-size: 1rem; flex-shrink: 0; }
+.nav-name {
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+}
+
+/* ════════════════════════════
+   GALLERY PAGE
+   ════════════════════════════ */
+
+/* ── Header ── */
+.gallery-header {
+  background: var(--main1);
+  border-bottom: 2.5px solid var(--black);
+  padding: 1.25rem 2rem;
+  display: flex; align-items: center; gap: 2rem;
+  position: sticky; top: 0; z-index: 10;
+}
+
+.back {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; text-decoration: none;
+  color: var(--black); border: 2.5px solid var(--black);
+  padding: 0.45rem 0.85rem;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+.back:hover { background: var(--black); color: var(--white); }
+
+.gallery-header .logo-box  { width: 2rem; height: 2rem; font-size: 0.6rem; }
+.gallery-header .logo-name { font-size: 0.85rem; }
+
+.page-title {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 600; letter-spacing: -0.01em; text-transform: uppercase;
+  margin-left: auto;
+}
+
+/* ── Lightbox ── */
+.lightbox {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.94);
+  z-index: 200;
+  align-items: center; justify-content: center;
+  padding: 2rem;
+}
+.lightbox.open { display: flex; }
+
+.lightbox img {
+  max-width: min(100%, var(--max-width));
+  max-height: 90vh;
+  object-fit: contain;
+  display: block;
+}
+
+.lb-close {
+  position: absolute; top: 1.25rem; right: 1.5rem;
+  color: var(--white); font-size: 1.4rem; font-weight: 600;
+  cursor: pointer; background: none; border: none; line-height: 1;
+}
+.lb-caption {
+  position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+  color: rgba(255,255,255,0.6);
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ════════════════════════════
+   RESPONSIVE
+   ════════════════════════════ */
+@media (max-width: 680px) {
+  .layout               { grid-template-columns: 1fr; }
+  .sidebar              { position: static; height: 50vh; padding: 1.5rem; gap: 2rem; border: 0px; border-bottom: 2px solid var(--black);}
+  .headline             { font-size: 2.8rem; }
+  .nav                  {height: 50vh;}
+  .nav-row             { min-height: 5rem; padding: 0 1.25rem; }
+  .nav-row:first-child { border-top: none; }
+  :root                 { --col-width: 160px; }
+  .gallery-header       { padding: 1rem; gap: 1rem; }
+  .page-title           { font-size: 1rem; }
+}
+
+
+/* ── Gallery Container ── */
+.gallery-wrap {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem 20px; /* Top/Bottom padding + side padding */
+  box-sizing: border-box;
+}
+
+.masonry {
+  position: relative; /* REQUIRED for the JS absolute positioning */
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ── Gallery Item ── */
+.masonry-item {
+  position: absolute;
+  width: 31.5%;
+  overflow: hidden;
+  border-radius: 4px;
+  transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.cursor-zoom {
+  cursor: zoom-in;
+}
+
+.cursor-link {
+  cursor: pointer;
+}
+
+/* For 2 columns on mobile, we use roughly 44% */
+@media (max-width: 700px) {
+  .masonry-item {
+    width: 46.5%; 
+  }
+}
+
+.masonry-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+
+/* ── Hover Effects ── */
+.overlay {
+  position: absolute; 
+  inset: 0;
+  background: rgba(0, 0, 0, 0); /* Start transparent */
+  transition: background 0.35s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.overlay-label {
+  position: absolute; 
+  inset: 0;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.3s 0.05s;
+  pointer-events: none;
+}
+
+.overlay-label span {
+  color: #ffffff;
+  font-size: 0.7rem; 
+  font-weight: 600;
+  letter-spacing: 0.14em; 
+  text-transform: uppercase; 
+  text-align: center;
+  padding: 0 0.75rem;
+  transform: translateY(12px);
+  display: block;
+  transition: transform 0.3s 0.05s;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+/* ── Hover States ── */
+.masonry-item:hover .overlay { 
+  background: rgba(0, 0, 0, 0.5); /* Semi-dark overlay */
+}
+
+.masonry-item:hover img { 
+  transform: scale(1.05); /* Slight zoom on image */
+}
+
+.masonry-item:hover .overlay-label { 
+  opacity: 1; 
+}
+
+.masonry-item:hover .overlay-label span { 
+  transform: translateY(0); 
+}
+
+/* ── Social Buttons ── */
+.social-row {
+    display: flex;
+    justify-content: space-between; /* Pushes icons to the edges */
+    align-items: center;
+    width: 100%;
+}
+.social-button {
+    text-decoration: none !important; /* Kills the underline */
+    color: inherit;
+    display: flex;
+    transition: transform 0.2s ease; /* Smooth hover */
+    line-height: 0; /* Prevents tiny alignment shifts */
+}
+
+.social-button i {
+    font-size: 24px; /* Set your icon size here */
+}
+
+.social-button:hover {
+    /* Scale only the icon, doesn't push other elements */
+    transform: scale(1.2); 
+}

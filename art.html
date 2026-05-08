@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sander - ART</title>
+  <link rel="stylesheet" href="style.css">
+  <!--  Favicon -->
+  <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css" />
+</head>
+<body>
+
+<header class="gallery-header">
+  <a class="back" href="index.html"> <i class="ph-bold ph-arrow-left"></i>    
+ Back</a>
+  <div class="logo">
+    <div class="logo-box">S</div>
+  </div>
+  <span class="page-title">ART</span>
+</header>
+
+<div class="gallery-wrap">
+  <div class="masonry" id="masonry"></div>
+</div>
+
+<!-- Lightbox (leave this as-is) -->
+<div class="lightbox" id="lightbox" onclick="closeLb(event)">
+  <button class="lb-close" onclick="closeLb()"><i class="ph-bold ph-x-circle"></i>   
+</button>
+  <img id="lb-img" src="" alt="">
+  <div class="lb-caption" id="lb-cap"></div>
+</div>
+<script>
+const IMAGES = [
+  { src: "assets/image/art/Andere/Dionysia/Schild_Blauw (Socials).jpg", title: "Dionysia KULAK", link: "assets/image/art/Andere/Dionysia/dionysia.html" },
+  { src: "assets/image/art/Andere/TERRASJES.jpg", title: "De Terrasjes" },
+  { src: "assets/image/art/24/50. Pencil.jpg", title: "Potlood" },
+  { src: "assets/image/art/24/4. Zot van kunst Sander.jpg", title: "Zot van kunst" },
+  { src: "assets/image/art/24/3. Expo Sander.jpg", title: "Expo schets" },
+  { src: "assets/image/art/24/2. Knoopke.jpg", title: "Knoopke" },
+  { src: "assets/image/art/24/1. Hallo Sander De Langhe.jpg", title: "Hallo Sander" },
+  { src: "assets/image/art/23/Eekhoorntje.jpg", title: "Eekhoorntje" },
+  { src: "assets/image/art/23/16 windows.jpg", title: "Raam" },
+  { src: "assets/image/art/23/14 lichtfoto.jpg", title: "lichtfoto" },
+  { src: "assets/image/art/23/13 interieur ingekleurd.jpg", title: "interieur" },
+  { src: "assets/image/art/23/12.0 raindrops.jpg", title: "Regen" },
+  { src: "assets/image/art/23/07 konijn.jpg", title: "konijn" },
+  { src: "assets/image/art/23/06.0 kerst.jpg", title: "kerst" },
+  { src: "assets/image/art/23/05 reflectie.jpg", title: "reflectie" },
+  { src: "assets/image/art/23/04.2 contrast licht.jpg", title: "contrast" },
+  { src: "assets/image/art/23/03.1 vlak.jpg", title: "vlak" },
+  { src: "assets/image/art/23/02 drijven.jpg", title: "drijven" },
+  { src: "assets/image/art/23/01 vuurvlieg.jpg", title: "vuurvlieg" },
+  { src: "assets/image/art/22/21 banaan.jpg", title: "banaan" },
+  { src: "assets/image/art/22/20 bruut.jpg", title: "bruut" },
+  { src: "assets/image/art/22/14 brutalisme.jpg", title: "brutalisme" },
+  { src: "assets/image/art/22/13 schilderij 1 sander.jpg", title: "schilderij" },
+  { src: "assets/image/art/22/12 compo 2 sander.jpg", title: "compositie" },
+  { src: "assets/image/art/22/9 expo.jpg", title: "expo" },
+  { src: "assets/image/art/22/8 leganimatie.jpg", title: "leganimatie", video: "assets/image/art/22/8 leganimatie.mp4" },
+  { src: "assets/image/art/22/7 zoek.jpg", title: "zoek" },
+  { src: "assets/image/art/22/6 spin.jpg", title: "spin" },
+  { src: "assets/image/art/22/3 dino.jpg", title: "dino" },
+  { src: "assets/image/art/22/2 impressie.jpg", title: "impressie" },
+  { src: "assets/image/art/22/1 expressie.jpg", title: "expressie" }
+];
+</script>
+<script src="gallery.js"></script>
+</body>
+</html>

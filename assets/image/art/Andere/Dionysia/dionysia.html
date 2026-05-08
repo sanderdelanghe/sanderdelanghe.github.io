@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dionysia - Sander</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #1a1a1a; /* Dark background to make art pop */
+            font-family: sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px; /* Limits size on desktop for better viewing */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .image-wrapper {
+            width: 100%;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        img {
+            /* This ensures both images scale to the same width */
+            width: 100%; 
+            height: auto; 
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 40px;
+        }
+
+        /* Optional: Smooth fade-in for the first image on load */
+        .first-load {
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="image-wrapper">
+            <img src="Schild_Blauw (Socials).jpg" alt="Schild Blauw Socials">
+            <img src="Schild_Artboards.jpg" alt="Schild Artboards" class="first-load">
+        </div>
+    </div>
+
+</body>
+</html>
+
