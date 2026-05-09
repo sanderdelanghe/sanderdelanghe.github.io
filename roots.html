@@ -73,7 +73,7 @@ const adjustIframeHeight = () => {
 
     if (header && iframe) {
         const headerHeight = header.offsetHeight;
-        iframe.style.height = `calc(100vh - ${headerHeight}px)`;
+        iframe.style.height = `calc(100vh - ${headerHeight + 4}px)`;
     }
 };
 
