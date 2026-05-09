@@ -172,7 +172,7 @@ body {
   .sidebar              { position: static; height: 50svh; padding: 1.5rem; gap: 2rem; border: 0px; border-bottom: 2px solid var(--black);}
   .headline             { font-size: 2.8rem; }
   .nav                  {height: 50svh;}
-  .nav-row             { min-height: 5rem; padding: 0 1.25rem; }
+  .nav-row             { padding: 0 1.25rem; }
   .nav-row:first-child { border-top: none; }
   :root                 { --col-width: 160px; }
   .gallery-header       { padding: 1rem; gap: 1rem; }
