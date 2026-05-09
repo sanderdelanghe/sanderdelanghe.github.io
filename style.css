@@ -23,7 +23,7 @@
 body {
   font-family: "Inter", sans-serif;  background: var(--white);
   color: var(--black);
-  min-height: 100vh;
+  min-height: 100svh;
   font-optical-sizing: auto;
 }
 
@@ -41,7 +41,7 @@ body {
 .layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 100vh;
+  min-height: 100svh;
 }
 
 /* ── Sidebar ── */
@@ -53,7 +53,7 @@ body {
   justify-content: space-between;
   position: sticky;
   top: 0;
-  height: 100vh;
+  height: 100svh;
   border: 2px solid var(--black);
 }
 
@@ -146,7 +146,7 @@ body {
 
 .lightbox img {
   max-width: min(100%, var(--max-width));
-  max-height: 90vh;
+  max-height: 90svh;
   object-fit: contain;
   display: block;
 }
@@ -169,9 +169,9 @@ body {
    ════════════════════════════ */
 @media (max-width: 680px) {
   .layout               { grid-template-columns: 1fr; }
-  .sidebar              { position: static; height: 50vh; padding: 1.5rem; gap: 2rem; border: 0px; border-bottom: 2px solid var(--black);}
+  .sidebar              { position: static; height: 50svh; padding: 1.5rem; gap: 2rem; border: 0px; border-bottom: 2px solid var(--black);}
   .headline             { font-size: 2.8rem; }
-  .nav                  {height: 50vh;}
+  .nav                  {height: 50svh;}
   .nav-row             { min-height: 5rem; padding: 0 1.25rem; }
   .nav-row:first-child { border-top: none; }
   :root                 { --col-width: 160px; }
