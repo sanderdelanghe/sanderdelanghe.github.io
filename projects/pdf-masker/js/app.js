@@ -25,20 +25,13 @@
   const viewerSection = document.getElementById('viewer-section');
   const viewer = document.getElementById('viewer');
   const toolbarControls = document.getElementById('toolbar-controls');
-  const revealAllBtn = document.getElementById('reveal-all-btn');
-  const hideAllBtn = document.getElementById('hide-all-btn');
   const changeFileBtn = document.getElementById('change-file-btn');
   const pageInfo = document.getElementById('page-info');
   
   // Toggles
-  const modeLineToggle = document.getElementById('mode-line-toggle');
-  const modeHoverToggle = document.getElementById('mode-hover-toggle');
-
   // ===== Initialize =====
   function init() {
     // Apply initial toggle states
-    document.body.classList.toggle('hover-reveal-mode', modeHoverToggle.checked);
-
     // Configure PDF.js worker
     pdfjsLib.GlobalWorkerOptions.workerSrc = WORKER_SRC;
 
@@ -60,7 +53,7 @@
         fileInput.click();
       }
     });
-
+    document.body.classList.toggle('hover-reveal-mode', 1);
     // Drag & Drop
     uploadZone.addEventListener('dragover', function (e) {
       e.preventDefault();
@@ -94,18 +87,8 @@
     });
 
     // Toolbar buttons
-    revealAllBtn.addEventListener('click', revealAll);
-    hideAllBtn.addEventListener('click', hideAll);
     changeFileBtn.addEventListener('click', resetToUpload);
 
-    // Toggles
-    modeHoverToggle.addEventListener('change', function (e) {
-      document.body.classList.toggle('hover-reveal-mode', e.target.checked);
-    });
-
-    modeLineToggle.addEventListener('change', function () {
-      if (pdfDoc) renderAllPages();
-    });
 
     // Debounced resize handler
     var resizeTimer;
@@ -289,7 +272,7 @@
   // ===== Wrap Individual Words or Lines in Mask Spans =====
   function wrapWordsInMasks(textLayerDiv) {
     var spans = textLayerDiv.querySelectorAll('span');
-    var isLineMode = modeLineToggle.checked;
+    var isLineMode = 1;
 
     spans.forEach(function (span) {
       var text = span.textContent;
@@ -329,20 +312,6 @@
   }
 
   // ===== Global Controls =====
-  function revealAll() {
-    var masks = document.querySelectorAll('.word-mask');
-    masks.forEach(function (mask) {
-      mask.classList.add('revealed');
-    });
-  }
-
-  function hideAll() {
-    var masks = document.querySelectorAll('.word-mask');
-    masks.forEach(function (mask) {
-      mask.classList.remove('revealed');
-    });
-  }
-
   // ===== Reset to Upload View =====
   function resetToUpload() {
     pdfDoc = null;
