@@ -289,7 +289,7 @@ body {
 
 /* ===== Hover Reveal Mode ===== */
 .hover-reveal-mode .word-mask {
-  transition: background-color 0.5s ease 2s;
+  transition: background-color 0.5s ease 999999s;
 }
 
 .hover-reveal-mode .word-mask:hover {
