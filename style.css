@@ -302,3 +302,14 @@ body {
     /* Scale only the icon, doesn't push other elements */
     transform: scale(1.2); 
 }
+
+/* ── Company Info ── */
+.company-info {
+    font-size: 0.65rem;
+    color: var(--black);
+    opacity: 0.7;
+    text-align: center;
+    padding: 1rem 2rem;
+    line-height: 1.6;
+    margin-top: auto;
+}
